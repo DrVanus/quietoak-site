@@ -252,9 +252,8 @@
     .feature-card p { color: var(--muted-fg); font-size: 0.97rem; }
 
     /* ===== SCREENS ===== */
-    .screens-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; align-items: start; }
-    @media (max-width: 880px) { .screens-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
-    @media (max-width: 520px) { .screens-grid { grid-template-columns: repeat(2, 1fr); } }
+    .screens-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: start; max-width: 860px; margin: 0 auto; }
+    @media (max-width: 760px) { .screens-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
     .screen-card { text-align: center; }
     .screen-frame {
       border-radius: 22px; overflow: hidden; border: 1px solid var(--border);
@@ -275,6 +274,15 @@
     .spotlight-points li { position: relative; padding: 9px 0 9px 26px; color: var(--muted-fg); font-size: 0.98rem; }
     .spotlight-points li::before { content: ''; position: absolute; left: 0; top: 16px; width: 7px; height: 7px; border-radius: 50%; background: var(--sage-deep); }
     .spotlight-points strong { color: var(--fg); }
+
+    /* ===== RESPONDS (two companion modes) ===== */
+    .responds-pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 600px; margin: 0 auto; }
+    @media (max-width: 520px) { .responds-pair { grid-template-columns: 1fr; gap: 24px; max-width: 280px; } }
+    .responds-card { text-align: center; }
+    .responds-card .screen-frame { border-radius: 24px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 18px 44px rgba(33,53,59,0.10); background: #fff; }
+    .responds-card img { width: 100%; display: block; }
+    .responds-card .screen-label { margin-top: 14px; font-size: 0.88rem; color: var(--muted-fg); }
+    .responds-card .screen-label strong { display: block; color: var(--primary-dark); font-weight: 700; margin-bottom: 2px; font-size: 0.95rem; }
 
     /* ===== COMPANIONS ===== */
     .companions-grid {
@@ -583,10 +591,6 @@
           <div class="screen-label"><strong>Today</strong>Your companion, every day</div>
         </div>
         <div class="screen-card">
-          <div class="screen-frame"><img src="screenshots/02-companion.jpg" alt="Quietoak companion chat with starter prompts and a crisis line" loading="lazy"></div>
-          <div class="screen-label"><strong>Companion</strong>Skills, right in the chat</div>
-        </div>
-        <div class="screen-card">
           <div class="screen-frame"><img src="screenshots/03-skills.jpg" alt="Quietoak Skills tab — the four DBT modules" loading="lazy"></div>
           <div class="screen-label"><strong>Skills</strong>Real DBT skills, guided</div>
         </div>
@@ -597,6 +601,25 @@
         <div class="screen-card">
           <div class="screen-frame"><img src="screenshots/05-crisis.jpg" alt="Quietoak Crisis Survival Kit — 988, 741741, and grounding skills" loading="lazy"></div>
           <div class="screen-label"><strong>Crisis kit</strong>One tap, always free</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW THE COMPANION RESPONDS ===== -->
+  <section class="section-block" id="responds" style="background: rgba(255,255,255,0.45);">
+    <div class="container">
+      <div class="section-eyebrow" style="text-align:center;">How your companion responds</div>
+      <h2 style="text-align:center;">It listens first — and <em>guides when it helps.</em></h2>
+      <p class="lede" style="text-align:center; max-width: 680px; margin-left:auto; margin-right:auto;">Your companion won't push a skill every time. Often it just wants to understand — asking what's going on, validating, and giving you room to vent. When something might genuinely help, it brings a guided exercise right into the chat, never buried in a menu.</p>
+      <div class="responds-pair">
+        <div class="responds-card">
+          <div class="screen-frame"><img src="screenshots/02-companion-listen.jpg" alt="Quietoak companion listening — validating and asking what made the day hard" loading="lazy"></div>
+          <div class="screen-label"><strong>Sometimes it just listens</strong>Asks, validates, lets you vent</div>
+        </div>
+        <div class="responds-card">
+          <div class="screen-frame"><img src="screenshots/02-companion.jpg" alt="Quietoak companion bringing a Paced Breathing exercise into the chat" loading="lazy"></div>
+          <div class="screen-label"><strong>And guides when it helps</strong>A skill, right in the chat</div>
         </div>
       </div>
     </div>
