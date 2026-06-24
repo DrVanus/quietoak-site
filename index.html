@@ -55,6 +55,15 @@
       --border-strong: rgba(33,53,59,0.18);
       --primary-glow: rgba(62,125,138,0.12);
       --sage-glow: rgba(157,191,168,0.20);
+      /* Per-companion accent discs — the EXACT app accent colours (light mode,
+         from DesignTokens.swift) at 0.18 opacity, mirroring the in-app avatar
+         disc so each companion reads in its own colour on the site as in the app. */
+      --c-willow: rgba(135,164,141,0.18); /* sage  */
+      --c-sage:   rgba(63,130,135,0.18);  /* tide  */
+      --c-river:  rgba(150,177,196,0.18); /* sky   */
+      --c-sol:    rgba(217,141,107,0.18); /* clay  */
+      --c-stone:  rgba(140,155,142,0.18); /* stone */
+      --c-fern:   rgba(169,182,140,0.18); /* fern  */
       --radius: 0.875rem;
       --radius-lg: 1.25rem;
     }
@@ -320,7 +329,14 @@
       transition: transform .2s, box-shadow .2s;
     }
     .companion-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(33,53,59,0.08); }
-    .companion-card img { width: 96px; height: 96px; object-fit: contain; margin: 0 auto 10px; display: block; }
+    /* Companion sits on a soft accent disc — same treatment as the in-app avatar. */
+    .companion-card img { width: 104px; height: 104px; object-fit: contain; margin: 0 auto 10px; display: block; border-radius: 50%; padding: 7px; }
+    .companion-card.willow img { background: var(--c-willow); }
+    .companion-card.sage   img { background: var(--c-sage); }
+    .companion-card.river  img { background: var(--c-river); }
+    .companion-card.sol    img { background: var(--c-sol); }
+    .companion-card.stone  img { background: var(--c-stone); }
+    .companion-card.fern   img { background: var(--c-fern); }
     .companion-card .name { font-weight: 800; font-size: 1.1rem; }
     .companion-card .role { color: var(--primary-dark); font-size: 0.82rem; font-weight: 700; margin: 2px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; }
     .companion-card p { color: var(--muted-fg); font-size: 0.92rem; }
@@ -447,7 +463,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="companions/group.png?v=20260624j" alt="The six Quietoak companions sitting together — a fawn, an owl, an otter, a tortoise, a rabbit, and a fox">
+          <img src="companions/group.png?v=20260624j" alt="The six Quietoak companions sitting together — a fawn, an owl, and a fox, with a tortoise, a rabbit, and an otter nestled in front">
         </div>
       </div>
     </div>
@@ -477,7 +493,7 @@
           </ol>
         </div>
         <div>
-          <img class="how-image" src="companions/willow-idle.png?v=20260624j" alt="Willow, a gentle sage-green fawn companion">
+          <img class="how-image" src="companions/willow-idle.png?v=20260624k" alt="Willow, a gentle sage-green fawn companion">
         </div>
       </div>
     </div>
@@ -489,42 +505,43 @@
       <div class="section-eyebrow" style="text-align:center;">The companions</div>
       <h2 style="text-align:center;">Choose the one who <em>fits you.</em></h2>
       <p class="lede" style="text-align:center; margin-left:auto; margin-right:auto;">Six soft nature-spirits, each a different way of showing up. The same companion guides your practice and stays with you in the hard moments.</p>
+      <!-- Order matches the in-app catalog (Companion.swift / onboarding): willow, sage, river, sol, stone, fern. -->
       <div class="companions-grid">
-        <div class="companion-card">
-          <img src="companions/willow-idle.png?v=20260624j" alt="Willow, a fawn">
+        <div class="companion-card willow">
+          <img src="companions/willow-idle.png?v=20260624k" alt="Willow, a fawn">
           <div class="name">Willow</div>
           <div class="role">Grounding</div>
           <p>Warm and quiet. Slows the body down — feet on the floor, one slow breath.</p>
         </div>
-        <div class="companion-card">
-          <img src="companions/stone-idle.png?v=20260624j" alt="Stone, a tortoise">
-          <div class="name">Stone</div>
-          <div class="role">Steady</div>
-          <p>Unhurried and immovable. "We have time. Nothing has to be solved this second."</p>
-        </div>
-        <div class="companion-card">
+        <div class="companion-card sage">
           <img src="companions/sage-idle.png?v=20260624j" alt="Sage, an owl">
           <div class="name">Sage</div>
           <div class="role">Clear</div>
           <p>Calm and plainspoken. Helps you name what's happening and see it clearly.</p>
         </div>
-        <div class="companion-card">
+        <div class="companion-card river">
           <img src="companions/river-idle.png?v=20260624j" alt="River, an otter">
           <div class="name">River</div>
           <div class="role">Encouraging</div>
           <p>Upbeat and honest. "You showed up — that counts. What's the next small win?"</p>
         </div>
-        <div class="companion-card">
-          <img src="companions/fern-idle.png?v=20260624j" alt="Fern, a rabbit">
-          <div class="name">Fern</div>
-          <div class="role">Tender</div>
-          <p>Soft and permission-giving. "You don't have to be okay right now."</p>
-        </div>
-        <div class="companion-card">
+        <div class="companion-card sol">
           <img src="companions/sol-idle.png?v=20260624j" alt="Sol, a fox">
           <div class="name">Sol</div>
           <div class="role">Hopeful</div>
           <p>Warm and low-light, not peppy. "Let's find one warm thing to stand on."</p>
+        </div>
+        <div class="companion-card stone">
+          <img src="companions/stone-idle.png?v=20260624j" alt="Stone, a tortoise">
+          <div class="name">Stone</div>
+          <div class="role">Steady</div>
+          <p>Unhurried and immovable. "We have time. Nothing has to be solved this second."</p>
+        </div>
+        <div class="companion-card fern">
+          <img src="companions/fern-idle.png?v=20260624j" alt="Fern, a rabbit">
+          <div class="name">Fern</div>
+          <div class="role">Tender</div>
+          <p>Soft and permission-giving. "You don't have to be okay right now."</p>
         </div>
       </div>
     </div>
