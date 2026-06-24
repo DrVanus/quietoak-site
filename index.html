@@ -266,6 +266,16 @@
     .screen-label { margin-top: 12px; font-size: 0.84rem; color: var(--muted-fg); line-height: 1.4; }
     .screen-label strong { display: block; color: var(--primary-dark); font-weight: 700; margin-bottom: 2px; font-size: 0.9rem; }
 
+    /* ===== SPOTLIGHT ===== */
+    .spotlight-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 52px; align-items: center; }
+    @media (max-width: 880px) { .spotlight-grid { grid-template-columns: 1fr; gap: 30px; } }
+    .spotlight-phone .screen-frame { max-width: 290px; margin: 0 auto; border-radius: 26px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(33,53,59,0.12); }
+    .spotlight-phone img { width: 100%; display: block; }
+    .spotlight-points { list-style: none; margin-top: 22px; }
+    .spotlight-points li { position: relative; padding: 9px 0 9px 26px; color: var(--muted-fg); font-size: 0.98rem; }
+    .spotlight-points li::before { content: ''; position: absolute; left: 0; top: 16px; width: 7px; height: 7px; border-radius: 50%; background: var(--sage-deep); }
+    .spotlight-points strong { color: var(--fg); }
+
     /* ===== COMPANIONS ===== */
     .companions-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
@@ -499,6 +509,27 @@
     </div>
   </section>
 
+  <!-- ===== PERSONALIZATION SPOTLIGHT ===== -->
+  <section class="section-block" id="personalize">
+    <div class="container">
+      <div class="spotlight-grid">
+        <div class="spotlight-phone">
+          <div class="screen-frame"><img src="screenshots/06-context.jpg" alt="Quietoak onboarding — sharing what you're navigating, diagnosed or exploring" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="section-eyebrow">Knows you better</div>
+          <h2>It learns what you're <em>navigating.</em></h2>
+          <p class="lede">Tell your companion what you're working with — what a professional has diagnosed, or just what you think might fit. It uses that to meet you where you are: the skills it reaches for, the words it chooses, what it knows might be hard.</p>
+          <ul class="spotlight-points">
+            <li><strong>Diagnosed or exploring.</strong> Mark what's been diagnosed and what you only wonder about — both are welcome, neither is required.</li>
+            <li><strong>Never a label.</strong> Quietoak doesn't diagnose or treat. Your companion uses this as context, never to assess you, and always points clinical questions back to your clinician.</li>
+            <li><strong>Yours to control.</strong> Optional, stored on your device, and editable anytime.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FEATURES ===== -->
   <section class="section-block" id="features">
     <div class="container">
@@ -553,7 +584,7 @@
         </div>
         <div class="screen-card">
           <div class="screen-frame"><img src="screenshots/02-companion.jpg" alt="Quietoak companion chat with starter prompts and a crisis line" loading="lazy"></div>
-          <div class="screen-label"><strong>Companion</strong>Talk it through, anytime</div>
+          <div class="screen-label"><strong>Companion</strong>Skills, right in the chat</div>
         </div>
         <div class="screen-card">
           <div class="screen-frame"><img src="screenshots/03-skills.jpg" alt="Quietoak Skills tab — the four DBT modules" loading="lazy"></div>
