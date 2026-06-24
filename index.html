@@ -13,11 +13,11 @@
   <meta property="og:description" content="Practice DBT skills with a warm companion you choose — and who's there in the hard moments too. Crisis support is always free.">
   <meta property="og:url" content="https://quietoak.app/">
   <meta property="og:site_name" content="Quietoak">
-  <meta property="og:image" content="https://quietoak.app/quietoak-icon.png">
+  <meta property="og:image" content="https://drvanus.github.io/quietoak-site/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Quietoak — A calmer way to practice DBT skills.">
   <meta name="twitter:description" content="Practice DBT skills with a warm companion you choose. The crisis kit is always free.">
-  <meta name="twitter:image" content="https://quietoak.app/quietoak-icon.png">
+  <meta name="twitter:image" content="https://drvanus.github.io/quietoak-site/og-image.png">
 
   <link rel="icon" type="image/png" href="quietoak-icon.png">
   <link rel="apple-touch-icon" href="quietoak-icon.png">
@@ -100,10 +100,31 @@
       letter-spacing: -0.01em;
     }
     nav.site .brand img { width: 36px; height: 36px; border-radius: 9px; }
-    nav.site .links { display: flex; gap: 26px; font-size: 0.95rem; }
+    nav.site .links { display: flex; gap: 20px; font-size: 0.95rem; flex-wrap: nowrap; white-space: nowrap; }
     nav.site .links a { color: var(--muted-fg); font-weight: 600; }
     nav.site .links a:hover { color: var(--primary); }
-    @media (max-width: 720px) { nav.site .links { display: none; } }
+
+    /* Mobile menu (no JS): a <details> hamburger that never collides with the brand. */
+    .mobile-menu { display: none; position: relative; }
+    .mobile-menu > summary {
+      list-style: none; cursor: pointer; padding: 6px 10px;
+      border: 1px solid var(--border); border-radius: 10px;
+      color: var(--primary-dark); font-weight: 800; font-size: 1.1rem; line-height: 1;
+    }
+    .mobile-menu > summary::-webkit-details-marker { display: none; }
+    .mobile-menu[open] > summary { background: var(--card-soft); }
+    .mobile-links {
+      position: absolute; right: 0; top: calc(100% + 8px); z-index: 60;
+      display: flex; flex-direction: column; gap: 2px; min-width: 190px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 8px; box-shadow: 0 16px 40px rgba(33,53,59,0.12);
+    }
+    .mobile-links a { color: var(--fg); font-weight: 600; padding: 10px 12px; border-radius: 8px; }
+    .mobile-links a:hover { background: var(--card-soft); color: var(--primary-dark); }
+    @media (max-width: 800px) {
+      nav.site .links { display: none; }
+      .mobile-menu { display: block; }
+    }
 
     /* ===== HERO ===== */
     section.hero { padding: 72px 0 64px; position: relative; }
@@ -117,7 +138,7 @@
     .eyebrow {
       display: inline-block;
       font-size: 0.76rem; font-weight: 800;
-      letter-spacing: 0.16em; color: var(--primary);
+      letter-spacing: 0.16em; color: var(--primary-dark);
       text-transform: uppercase;
       margin-bottom: 18px; padding: 6px 14px;
       background: var(--sage-glow);
@@ -141,7 +162,7 @@
     .btn-warm {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 14px 26px;
-      background: linear-gradient(135deg, var(--primary), var(--sage-deep));
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: #fff; font-weight: 800; font-size: 1rem;
       border-radius: var(--radius);
       transition: transform .15s, box-shadow .15s;
@@ -184,7 +205,7 @@
     section { position: relative; }
     .section-block { padding: 72px 0; }
     .section-block.tight { padding: 52px 0; }
-    .section-eyebrow { font-size: 0.76rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 14px; }
+    .section-eyebrow { font-size: 0.76rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary-dark); margin-bottom: 14px; }
     .section-block h2 {
       font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.7rem);
       line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 16px;
@@ -209,7 +230,7 @@
       font-weight: 800; font-size: 1.15rem; color: var(--primary);
       background: var(--sage-glow); border: 1px solid var(--border-strong); border-radius: 50%;
     }
-    .how-steps h4 { font-weight: 800; font-size: 1.12rem; margin-bottom: 4px; }
+    .how-steps h3 { font-weight: 800; font-size: 1.12rem; margin-bottom: 4px; }
     .how-steps p { color: var(--muted-fg); font-size: 0.97rem; }
 
     /* ===== FEATURES ===== */
@@ -243,7 +264,7 @@
     .screen-card:hover .screen-frame { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(33,53,59,0.16); }
     .screen-card img { width: 100%; display: block; }
     .screen-label { margin-top: 12px; font-size: 0.84rem; color: var(--muted-fg); line-height: 1.4; }
-    .screen-label strong { display: block; color: var(--primary); font-weight: 700; margin-bottom: 2px; font-size: 0.9rem; }
+    .screen-label strong { display: block; color: var(--primary-dark); font-weight: 700; margin-bottom: 2px; font-size: 0.9rem; }
 
     /* ===== COMPANIONS ===== */
     .companions-grid {
@@ -260,7 +281,7 @@
     .companion-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(33,53,59,0.08); }
     .companion-card img { width: 96px; height: 96px; object-fit: contain; margin: 0 auto 10px; display: block; }
     .companion-card .name { font-weight: 800; font-size: 1.1rem; }
-    .companion-card .role { color: var(--primary); font-size: 0.82rem; font-weight: 700; margin: 2px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .companion-card .role { color: var(--primary-dark); font-size: 0.82rem; font-weight: 700; margin: 2px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; }
     .companion-card p { color: var(--muted-fg); font-size: 0.92rem; }
 
     /* ===== CRISIS BAND ===== */
@@ -324,11 +345,11 @@
     .disclaimer { padding: 36px 0 8px; }
     .disclaimer p {
       max-width: 820px; margin: 0 auto; text-align: center;
-      color: var(--tertiary-fg); font-size: 0.86rem; line-height: 1.6;
+      color: var(--muted-fg); font-size: 0.86rem; line-height: 1.6;
     }
 
     /* ===== FOOTER ===== */
-    footer.site { padding: 40px 24px 60px; text-align: center; color: var(--tertiary-fg); font-size: 0.9rem; }
+    footer.site { padding: 40px 24px 60px; text-align: center; color: var(--muted-fg); font-size: 0.9rem; }
     footer.site .links { margin-bottom: 12px; }
     footer.site .links a { color: var(--muted-fg); margin: 0 14px; font-weight: 600; }
     footer.site .links a:hover { color: var(--primary); }
@@ -353,6 +374,18 @@
         <a href="#faq">FAQ</a>
         <a href="support.html">Support</a>
       </div>
+      <details class="mobile-menu">
+        <summary aria-label="Open menu">☰</summary>
+        <div class="mobile-links">
+          <a href="#how">How it works</a>
+          <a href="#companions">Companions</a>
+          <a href="#features">Features</a>
+          <a href="#screens">Screens</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="support.html">Support</a>
+        </div>
+      </details>
     </div>
   </nav>
 
@@ -373,7 +406,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="companions/group.png" alt="The six Quietoak companions — a fawn, a tortoise, an owl, an otter, a rabbit, and a fox — sitting together">
+          <img src="companions/hero-companions.png" alt="The six Quietoak companions — a fawn, an owl, an otter, a tortoise, a rabbit, and a fox">
         </div>
       </div>
     </div>
@@ -399,15 +432,15 @@
           <p class="lede">Not a bot buried in a menu. The companion you choose and bond with for everyday practice is the same warm presence you can talk to when things get hard.</p>
           <ol class="how-steps">
             <li>
-              <h4>Choose your companion</h4>
+              <h3>Choose your companion</h3>
               <p>Pick one of six gentle companions, each with its own temperament. Name it, and make it yours.</p>
             </li>
             <li>
-              <h4>Practice DBT skills together</h4>
+              <h3>Practice DBT skills together</h3>
               <p>Work through real DBT skills with guided exercises like STOP, TIPP, and paced breathing — and log a one-minute diary card.</p>
             </li>
             <li>
-              <h4>They're there on the hard days too</h4>
+              <h3>They're there on the hard days too</h3>
               <p>The same companion is one tap away in chat. And the Crisis Survival Kit — 988, 741741, your local lines — is always free and works offline.</p>
             </li>
           </ol>
@@ -501,7 +534,7 @@
         <div class="feature-card">
           <div class="icon-box"><img src="icons/feat-privacy.png" alt=""></div>
           <h3>Private &amp; accountless</h3>
-          <p>No sign-up, nothing to share. Your diary and practice stay on your device by default. No ads, no third-party trackers on your diary or chat.</p>
+          <p>No sign-up, no account to create. Your diary and practice stay on your device by default. No ads, no third-party trackers on your diary or chat.</p>
         </div>
       </div>
     </div>
@@ -579,7 +612,7 @@
             <li>Premium companion voice</li>
             <li>Deeper memory &amp; continuity</li>
             <li>Advanced trend analytics</li>
-            <li>Weekly &amp; clinician-ready export</li>
+            <li>A weekly summary you can share with a therapist</li>
           </ul>
         </div>
       </div>
@@ -610,7 +643,7 @@
         </details>
         <details class="faq">
           <summary>What's free, and what's Plus?</summary>
-          <p>The DBT skills library, the diary card, all six companions, and the crisis kit are free. Quietoak Plus ($9.99/month or $59.99/year) adds premium companion voice, deeper memory, advanced trend analytics, and weekly / clinician-ready export. Crisis features are never behind Plus.</p>
+          <p>The DBT skills library, the diary card, all six companions, and the crisis kit are free. Quietoak Plus ($9.99/month or $59.99/year) adds premium companion voice, deeper memory, advanced trend analytics, and a weekly summary you can share with a therapist. Crisis features are never behind Plus.</p>
         </details>
         <details class="faq">
           <summary>Who is Quietoak for?</summary>
