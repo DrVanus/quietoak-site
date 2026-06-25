@@ -209,7 +209,7 @@
     }
     /* On phones the -30px glow bleed pushed the page ~6px past the viewport
        (horizontal scroll). Pull it in so the page can't drift sideways. */
-    @media (max-width: 700px) { .hero-image::after { inset: 0; } }
+    @media (max-width: 880px) { .hero-image::after { inset: 0; } }
 
     /* ===== STATS STRIP ===== */
     .stats-strip {
@@ -294,7 +294,7 @@
     .spotlight-phone img { width: 100%; display: block; }
     .spotlight-points { list-style: none; margin-top: 22px; }
     .spotlight-points li { position: relative; padding: 9px 0 9px 26px; color: var(--muted-fg); font-size: 0.98rem; }
-    .spotlight-points li::before { content: ''; position: absolute; left: 0; top: 16px; width: 7px; height: 7px; border-radius: 50%; background: var(--sage-deep); }
+    .spotlight-points li::before { content: ''; position: absolute; left: 0; top: calc(9px + 0.62em); transform: translateY(-50%); width: 7px; height: 7px; border-radius: 50%; background: var(--sage-deep); }
     .spotlight-points strong { color: var(--fg); }
     /* Phone-on-the-right variant (alternate the rhythm down the page). */
     .spotlight-grid.flip { grid-template-columns: 1.18fr 0.82fr; }
@@ -378,7 +378,7 @@
     .crisis-band strong { color: var(--crisis-text); }
 
     /* ===== PLANS ===== */
-    .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 760px; margin: 0 auto; }
+    .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 760px; margin: 0 auto; align-items: start; }
     @media (max-width: 700px) { .plans { grid-template-columns: 1fr; } }
     .plan { padding: 32px 28px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); position: relative; }
     .plan.featured { border-color: var(--primary); background: linear-gradient(180deg, rgba(157,191,168,0.10), var(--card)); }
@@ -393,7 +393,7 @@
     .plan .period { color: var(--muted-fg); font-size: 0.92rem; margin-bottom: 22px; }
     .plan ul { list-style: none; margin-bottom: 6px; }
     .plan li { padding: 8px 0 8px 26px; font-size: 0.95rem; position: relative; color: var(--fg); }
-    .plan li::before { content: ''; position: absolute; left: 0; top: 13px; width: 7px; height: 7px; border-radius: 50%; background: var(--sage-deep); }
+    .plan li::before { content: ''; position: absolute; left: 0; top: calc(8px + 0.62em); transform: translateY(-50%); width: 7px; height: 7px; border-radius: 50%; background: var(--sage-deep); }
     .plan li.muted { color: var(--muted-fg); }
     .plan li.muted::before { background: var(--tertiary-fg); }
 
