@@ -31,6 +31,12 @@ body {
 
 a { color: var(--primary-dark); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--primary); }
+a:focus-visible { outline: 3px solid var(--primary-dark); outline-offset: 3px; border-radius: 4px; }
+
+/* Honor Reduce Motion — no animated anchor scroll. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
