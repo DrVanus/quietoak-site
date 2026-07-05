@@ -13,9 +13,12 @@ Rounded). Deploy on GitHub Pages (or any static host) at **quietoak.app**.
 - `404.html`, `robots.txt`, `sitemap.xml`, `.nojekyll`, `legal.css`
 
 ## Assets (from ~/Desktop/Anchor-Brand + ~/Desktop/Anchor-Ads)
-- `quietoak-icon.png` — app icon (oak), used as favicon + og:image
-- `quietoak-wordmark.png` — two-tone wordmark
-- `companions/*` — the six companions + `group.png` hero, `scene-welcome.png`
+- `quietoak-icon.png` — app icon (oak), used as favicon + apple-touch-icon
+- `og-image.png` — 1200×630 social share card (og:image / twitter:image)
+- `quietoak-wordmark.png` — two-tone wordmark (kept for future nav/footer use; not currently referenced)
+- `companions/*` — the six companion portraits + `group.png` (hero)
+- `icons/feat-*.png` — feature-card glyphs
+- `screenshots/*` — current in-app device screenshots used by the landing page
 
 ## App ↔ site contract
 The iOS app's legal links must resolve here. Point them at
@@ -26,4 +29,4 @@ hi@quietoak.app.
 ## Before publishing
 - Buy/point the **quietoak.app** domain; set up email forwarding for hi@quietoak.app.
 - Replace the indicative Plus prices if they change ($9.99/mo · $59.99/yr from the StoreKit).
-- Add real App Store device screenshots once the build is ready (a `screenshots/` section can slot into index.html like storyvault-site).
+- Screenshots in `screenshots/` are live app captures wired into index.html; re-export them whenever the app UI changes.
