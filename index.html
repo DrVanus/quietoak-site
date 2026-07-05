@@ -19,14 +19,14 @@
   <meta property="og:description" content="Practice DBT skills with a warm companion you choose — and who's there in the hard moments too. Crisis support is always free.">
   <meta property="og:url" content="https://quietoak.app/">
   <meta property="og:site_name" content="Quietoak">
-  <meta property="og:image" content="https://quietoak.app/og-image.png?v=20260624r">
+  <meta property="og:image" content="https://quietoak.app/og-image.png?v=20260704a">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Quietoak — a calmer way to practice DBT skills">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Quietoak — A calmer way to practice DBT skills.">
   <meta name="twitter:description" content="Practice DBT skills with a warm companion you choose. The crisis kit is always free.">
-  <meta name="twitter:image" content="https://quietoak.app/og-image.png?v=20260624r">
+  <meta name="twitter:image" content="https://quietoak.app/og-image.png?v=20260704a">
   <meta name="twitter:image:alt" content="Quietoak — a calmer way to practice DBT skills">
 
   <link rel="icon" type="image/png" href="quietoak-icon.png?v=20260624r">
@@ -59,9 +59,9 @@
       --border-strong: rgba(33,53,59,0.18);
       --primary-glow: rgba(62,125,138,0.12);
       --sage-glow: rgba(157,191,168,0.20);
-      /* Per-companion accent discs — the EXACT app accent colours (light mode,
-         from DesignTokens.swift) at 0.18 opacity, mirroring the in-app avatar
-         disc so each companion reads in its own colour on the site as in the app. */
+      /* Per-companion accent discs — the exact in-app accent colours (light mode)
+         at 0.18 opacity, mirroring the in-app avatar disc so each companion reads
+         in its own colour on the site as in the app. */
       --c-willow: rgba(135,164,141,0.18); /* sage  */
       --c-sage:   rgba(63,130,135,0.18);  /* tide  */
       --c-river:  rgba(150,177,196,0.18); /* sky   */
@@ -210,18 +210,6 @@
     /* On phones the -30px glow bleed pushed the page ~6px past the viewport
        (horizontal scroll). Pull it in so the page can't drift sideways. */
     @media (max-width: 880px) { .hero-image::after { inset: 0; } }
-
-    /* ===== STATS STRIP ===== */
-    .stats-strip {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;
-      padding: 26px 24px;
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      margin: 24px 0 8px; background: rgba(255,255,255,0.5);
-      border-radius: var(--radius-lg);
-    }
-    .stat { text-align: center; min-width: 130px; }
-    .stat-value { font-weight: 800; font-size: 2rem; color: var(--primary); display: block; line-height: 1; }
-    .stat-label { font-size: 0.8rem; color: var(--muted-fg); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 7px; }
 
     /* ===== SECTION ===== */
     section { position: relative; }
@@ -378,9 +366,9 @@
     .crisis-band strong { color: var(--crisis-text); }
 
     /* ===== PLANS ===== */
-    .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 760px; margin: 0 auto; align-items: start; }
+    .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 760px; margin: 0 auto; align-items: stretch; }
     @media (max-width: 700px) { .plans { grid-template-columns: 1fr; } }
-    .plan { padding: 32px 28px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); position: relative; }
+    .plan { padding: 32px 28px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); position: relative; display: flex; flex-direction: column; }
     .plan.featured { border-color: var(--primary); background: linear-gradient(180deg, rgba(157,191,168,0.10), var(--card)); }
     .plan.featured::before {
       content: 'Best value'; position: absolute; top: -12px; right: 20px;
@@ -396,6 +384,9 @@
     .plan li::before { content: ''; position: absolute; left: 0; top: calc(8px + 0.62em); transform: translateY(-50%); width: 7px; height: 7px; border-radius: 50%; background: var(--sage-deep); }
     .plan li.muted { color: var(--muted-fg); }
     .plan li.muted::before { background: var(--tertiary-fg); }
+    .plan .plan-note { margin-top: 16px; font-size: 0.92rem; font-weight: 700; color: var(--sage-deep); }
+    .plan .plan-fine { margin-top: auto; padding-top: 16px; font-size: 0.78rem; line-height: 1.5; color: var(--muted-fg); }
+    .plan .plan-fine a { color: var(--primary-dark); text-decoration: underline; }
 
     /* ===== FAQ ===== */
     .faq-list { max-width: 720px; margin: 0 auto; }
@@ -463,7 +454,7 @@
   <nav class="site">
     <div class="container">
       <div class="brand">
-        <img src="quietoak-icon.png?v=20260624r" alt="Quietoak">
+        <img src="quietoak-icon.png?v=20260624r" alt="">
         Quietoak
       </div>
       <div class="links">
@@ -496,7 +487,7 @@
       <div class="hero-layout">
         <div class="hero-text">
           <span class="eyebrow">Coming to iOS</span>
-          <h1>A calmer way to<br><span class="soft">practice DBT skills.</span></h1>
+          <h1>A calmer way to<br><span class="soft">practice DBT&nbsp;skills.</span></h1>
           <p class="lede">Choose a companion — a gentle nature-spirit you name and get to know — who guides your daily DBT practice. The same companion is right there in the hard moments too. And the crisis kit is always free.</p>
           <div class="hero-buttons">
             <a href="mailto:hi@quietoak.app?subject=Notify%20me%20when%20Quietoak%20launches" class="btn-warm">
@@ -507,7 +498,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="companions/group.png?v=20260624r" alt="The six Quietoak companions sitting together — a fawn, an owl, and a fox, with a tortoise, a rabbit, and an otter nestled in front">
+          <img src="companions/group.png?v=20260704a" alt="The six Quietoak companions sitting together — a fawn, an owl, an otter, and a fox, with a tortoise and a rabbit nestled in front">
         </div>
       </div>
     </div>
@@ -537,7 +528,7 @@
           </ol>
         </div>
         <div>
-          <img class="how-image" src="companions/willow-idle.png?v=20260624r" alt="Willow, a gentle sage-green fawn companion">
+          <img class="how-image" src="companions/willow-steady.png?v=20260704a" alt="Willow, a gentle sage-green fawn companion">
         </div>
       </div>
     </div>
@@ -549,43 +540,43 @@
       <div class="section-eyebrow" style="text-align:center;">The companions</div>
       <h2 style="text-align:center;">Choose the one who <em>fits you.</em></h2>
       <p class="lede" style="text-align:center; margin-left:auto; margin-right:auto;">Six soft nature-spirits, each a different way of showing up. The same companion guides your practice and stays with you in the hard moments.</p>
-      <!-- Order matches the in-app catalog (Companion.swift / onboarding): willow, sage, river, sol, stone, fern. -->
+      <!-- Order matches the in-app onboarding catalog: willow, sage, river, sol, stone, fern. -->
       <div class="companions-grid">
         <div class="companion-card willow">
-          <img src="companions/willow-idle.png?v=20260624r" alt="Willow, a fawn">
+          <img src="companions/willow-steady.png?v=20260704a" alt="Willow, a fawn">
           <div class="name">Willow</div>
           <div class="role">Grounding</div>
           <p>Warm and quiet. Slows the body down — feet on the floor, one slow breath.</p>
         </div>
         <div class="companion-card sage">
-          <img src="companions/sage-idle.png?v=20260624r" alt="Sage, an owl">
+          <img src="companions/sage-steady.png?v=20260704a" alt="Sage, an owl">
           <div class="name">Sage</div>
           <div class="role">Clear</div>
           <p>Calm and plainspoken. Helps you name what's happening and see it clearly.</p>
         </div>
         <div class="companion-card river">
-          <img src="companions/river-idle.png?v=20260624r" alt="River, an otter">
+          <img src="companions/river-steady.png?v=20260704a" alt="River, an otter">
           <div class="name">River</div>
-          <div class="role">Encouraging</div>
-          <p>Upbeat and honest. "You showed up — that counts. What's the next small win?"</p>
+          <div class="role">Flowing</div>
+          <p>Encouraging and easy to talk to. "There's no wrong way to start — just tell me how today's going."</p>
         </div>
         <div class="companion-card sol">
-          <img src="companions/sol-idle.png?v=20260624r" alt="Sol, a fox">
+          <img src="companions/sol-steady.png?v=20260704a" alt="Sol, a fox">
           <div class="name">Sol</div>
           <div class="role">Hopeful</div>
-          <p>Warm and low-light, not peppy. "Let's find one warm thing to stand on."</p>
+          <p>Warm and low-light, not peppy. "Even on the heaviest days, we can find one warm thing to stand on."</p>
         </div>
         <div class="companion-card stone">
-          <img src="companions/stone-idle.png?v=20260624r" alt="Stone, a tortoise">
+          <img src="companions/stone-steady.png?v=20260704a" alt="Stone, a tortoise">
           <div class="name">Stone</div>
           <div class="role">Steady</div>
-          <p>Unhurried and immovable. "We have time. Nothing has to be solved this second."</p>
+          <p>Unhurried and immovable. "We've got time. Nothing here has to be fixed right now."</p>
         </div>
         <div class="companion-card fern">
-          <img src="companions/fern-idle.png?v=20260624r" alt="Fern, a rabbit">
+          <img src="companions/fern-steady.png?v=20260704a" alt="Fern, a rabbit">
           <div class="name">Fern</div>
           <div class="role">Tender</div>
-          <p>Soft and permission-giving. "You don't have to be okay right now."</p>
+          <p>Soft and permission-giving. "You don't have to be okay right now, or fix anything."</p>
         </div>
       </div>
     </div>
@@ -622,7 +613,7 @@
           <p class="lede">Tap once and talk — hands-free, like a real conversation. Your companion listens and answers in a warm spoken voice, so on the nights you can't face typing, you don't have to. Switch back to text whenever you want.</p>
           <ul class="spotlight-points">
             <li><strong>Hands-free.</strong> Tap to talk, then just speak — no typing, no menus.</li>
-            <li><strong>A voice that matches your companion.</strong> Each one has its own gentle, natural-sounding voice.</li>
+            <li><strong>A voice that matches your companion.</strong> Each one has its own gentle, distinct voice.</li>
             <li><strong>Always your choice.</strong> "Type instead" is one tap away, and the crisis kit is never more than a tap from here either.</li>
           </ul>
         </div>
@@ -682,11 +673,11 @@
       <p class="lede" style="text-align:center; margin-left:auto; margin-right:auto;">Warm, plainspoken, and built for hard moments — not a clinical dashboard.</p>
       <div class="screens-grid">
         <div class="screen-card">
-          <div class="screen-frame"><img src="screenshots/01-today.jpg?v=20260626d" alt="Quietoak Today tab — a companion greeting and a one-minute check-in" loading="lazy"></div>
+          <div class="screen-frame"><img src="screenshots/01-today.jpg?v=20260704a" alt="Quietoak Today tab — a companion greeting and a one-minute check-in" loading="lazy"></div>
           <div class="screen-label"><strong>Today</strong>Your companion, every day</div>
         </div>
         <div class="screen-card">
-          <div class="screen-frame"><img src="screenshots/02b-cards.jpg?v=20260624r" alt="Quietoak companion chat with DBT skill cards brought right into the conversation" loading="lazy"></div>
+          <div class="screen-frame"><img src="screenshots/02b-cards.jpg?v=20260704a" alt="Quietoak companion chat with DBT skill cards brought right into the conversation" loading="lazy"></div>
           <div class="screen-label"><strong>In-chat skills</strong>Lessons, right in the chat</div>
         </div>
         <div class="screen-card">
@@ -721,7 +712,7 @@
           <div class="screen-label"><strong>Sometimes it just listens</strong>Asks, validates, lets you vent</div>
         </div>
         <div class="responds-card">
-          <div class="screen-frame"><img src="screenshots/02-companion.jpg?v=20260624r" alt="Quietoak companion bringing a Paced Breathing exercise into the chat" loading="lazy"></div>
+          <div class="screen-frame"><img src="screenshots/02-companion.jpg?v=20260704a" alt="Quietoak companion bringing a Paced Breathing exercise into the chat" loading="lazy"></div>
           <div class="screen-label"><strong>And guides when it helps</strong>A skill, right in the chat</div>
         </div>
       </div>
@@ -734,8 +725,8 @@
       <div class="spotlight-grid">
         <div class="spotlight-phone">
           <div class="spotlight-duo">
-            <div class="screen-frame"><img src="screenshots/09-conversations.jpg?v=20260626r" alt="Quietoak conversations drawer — saved talks and what your companion remembers between chats" loading="lazy"></div>
-            <div class="screen-frame"><img src="screenshots/08-switcher.jpg?v=20260626r" alt="Quietoak companion switcher — choosing which companion you need right now, each with a voice sample" loading="lazy"></div>
+            <div class="screen-frame"><img src="screenshots/09-conversations.jpg?v=20260704a" alt="Quietoak conversations drawer — saved talks and what your companion remembers between chats" loading="lazy"></div>
+            <div class="screen-frame"><img src="screenshots/08-switcher.jpg?v=20260704a" alt="Quietoak companion switcher — choosing which companion you need right now, each with a voice sample" loading="lazy"></div>
           </div>
         </div>
         <div>
@@ -781,11 +772,11 @@
       <p class="lede" style="text-align:center; max-width: 660px; margin: 0 auto 44px;">Quietoak follows your device's Light or Dark setting — a soft, low-glare night theme for late hours and hard nights. Never harsh, never a stark black void.</p>
       <div class="night-grid">
         <div class="night-card">
-          <div class="screen-frame"><img src="screenshots/dark-today.jpg?v=20260626d" alt="Quietoak Today screen in dark mode" loading="lazy"></div>
+          <div class="screen-frame"><img src="screenshots/dark-today.jpg?v=20260704a" alt="Quietoak Today screen in dark mode" loading="lazy"></div>
           <div class="label"><strong>Today</strong>Your companion, after dark</div>
         </div>
         <div class="night-card">
-          <div class="screen-frame"><img src="screenshots/dark-companion.jpg?v=20260624r" alt="Quietoak companion chat in dark mode" loading="lazy"></div>
+          <div class="screen-frame"><img src="screenshots/dark-companion.jpg?v=20260704a" alt="Quietoak companion chat in dark mode" loading="lazy"></div>
           <div class="label"><strong>Companion</strong>A gentle presence at night</div>
         </div>
         <div class="night-card">
@@ -839,9 +830,12 @@
           <div class="period">or $59.99/year · cancel anytime</div>
           <ul>
             <li>Everything in Free</li>
+            <li>Unlimited time with your companion — no daily limit — and the smartest, warmest version of them</li>
             <li>Premium companion voice — a warmer, more natural voice (the on-device voice stays free for everyone)</li>
             <li>A clinician-ready PDF of your diary card to share with your therapist</li>
           </ul>
+          <p class="plan-note">Crisis support is always free — on every plan.</p>
+          <p class="plan-fine">Auto-renewing subscription billed to your Apple ID. It renews unless cancelled at least 24&nbsp;hours before the period ends; manage or cancel anytime in iOS&nbsp;Settings. <a href="terms.html">See terms</a>.</p>
         </div>
       </div>
     </div>
@@ -859,7 +853,7 @@
         </details>
         <details class="faq">
           <summary>Is the companion a real person?</summary>
-          <p>No — your companion is an AI guide. It says so, it never claims to be a therapist or a human, and it points you toward people and professional help when that's what's needed. It's there to help you practice skills, not to be something you lean on instead of real support.</p>
+          <p>No — your companion is an AI guide. It says so, it never claims to be a therapist or a person, and it points you toward people and professional help when that's what's needed. It's there to help you practice skills, not to be something you lean on instead of real support.</p>
         </details>
         <details class="faq">
           <summary>Can I talk out loud, or switch companions?</summary>
@@ -871,11 +865,11 @@
         </details>
         <details class="faq">
           <summary>Is my data private?</summary>
-          <p>Your diary and practice are stored on your device by default. There's no account and no login. We don't run ads or third-party trackers against your diary or chat. To generate replies, your messages are sent to our backend and an AI provider — the full data flow is in our <a href="privacy.html">privacy policy</a>.</p>
+          <p>Your diary and practice are stored on your device by default. There's no account and no login. We don't run ads or third-party trackers against your diary or chat. To generate replies, your messages are sent to our backend and an AI provider, and your conversations are saved there — tied only to a random device ID, never your name — so your chats carry over between sessions. You can delete them anytime, and the full data flow is in our <a href="privacy.html">privacy policy</a>.</p>
         </details>
         <details class="faq">
           <summary>What's free, and what's Plus?</summary>
-          <p>Almost everything is free: the DBT skills library, the diary card and trends, all six companions, your saved conversations, and the crisis kit. Quietoak Plus ($9.99/month or $59.99/year) adds a premium companion voice — a warmer, more natural one (the on-device voice stays free for everyone) — and a clinician-ready PDF of your diary card to share with your therapist. Crisis features are never behind Plus.</p>
+          <p>The whole app is free to use: the DBT skills library, the diary card and trends, all six companions, your saved conversations, the crisis kit, and daily companion chat (with a gentle daily limit). Quietoak Plus ($9.99/month or $59.99/year) lifts that limit — unlimited time with your companion, plus the smartest version of them — and adds a premium companion voice (the on-device voice stays free for everyone) and a clinician-ready PDF of your diary card. Crisis support is never limited and never behind Plus.</p>
         </details>
         <details class="faq">
           <summary>Who is Quietoak for?</summary>
@@ -902,7 +896,7 @@
   <!-- ===== DISCLAIMER ===== -->
   <section class="disclaimer">
     <div class="container">
-      <p>Quietoak teaches DBT skills and is not therapy, medical treatment, a diagnosis, or a crisis service. Your companion is an AI guide, not a human or a substitute for professional care. If you're in crisis, call or text 988 (US) or your local emergency number. 18+.</p>
+      <p>Quietoak teaches DBT skills and is not therapy, medical treatment, a diagnosis, or a crisis service. Your companion is an AI guide, not a person or a substitute for professional care. If you're in crisis, call or text 988 (US) or your local emergency number. 18+.</p>
     </div>
   </section>
 
