@@ -200,7 +200,7 @@
 
     .hero-image { position: relative; }
     .hero-image img {
-      width: 100%; max-width: 460px; display: block; margin: 0 auto;
+      width: 100%; max-width: 460px; display: block; margin: 0 auto; object-fit: contain;
     }
     .hero-image::after {
       content: ''; position: absolute; inset: -30px;
@@ -226,7 +226,7 @@
     /* ===== HOW ===== */
     .how-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 56px; align-items: center; }
     @media (max-width: 880px) { .how-grid { grid-template-columns: 1fr; gap: 36px; } }
-    .how-image { width: 100%; max-width: 420px; display: block; margin: 0 auto; }
+    .how-image { width: 100%; max-width: 420px; display: block; margin: 0 auto; object-fit: contain; }
     .how-steps { list-style: none; counter-reset: step; }
     .how-steps li {
       counter-increment: step; padding: 16px 0 16px 64px;
