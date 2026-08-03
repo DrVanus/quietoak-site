@@ -15,8 +15,9 @@ Rounded). Deploy on GitHub Pages (or any static host) at **quietoak.app**.
 ## Assets (from ~/Desktop/Anchor-Brand + ~/Desktop/Anchor-Ads)
 - `quietoak-icon.png` — app icon (oak), used as favicon + apple-touch-icon
 - `og-image.png` — 1200×630 social share card (og:image / twitter:image)
-- `quietoak-wordmark.png` — two-tone wordmark (kept for future nav/footer use; not currently referenced)
-- `companions/*` — the six companion portraits + `group.png` (hero)
+- `companions/<id>-card.png` — the six companion cards, composed from the app's `<id>-avatar`
+- `companions/group.png` — the hero, composed from the app's six `<id>-steady` sprites
+- `companions/willow-steady.png` — the how-it-works image; the one raw shipped sprite the site carries
 - `icons/feat-*.png` — feature-card glyphs
 - `screenshots/*` — current in-app device screenshots used by the landing page
 
@@ -30,3 +31,18 @@ hi@quietoak.app.
 - Buy/point the **quietoak.app** domain; set up email forwarding for hi@quietoak.app.
 - Replace the indicative Plus prices if they change ($9.99/mo · $59.99/yr from the StoreKit).
 - Screenshots in `screenshots/` are live app captures wired into index.html; re-export them whenever the app UI changes.
+
+> `screenshots/` serves TWO consumers, so "no page references it" does not mean
+> unused. `02-companion.jpg` is not in index.html but is App Store screenshot
+> slot 2 (`anchor-ios/store/listing.md`), and `anchor-ios/take-screenshots.sh`
+> regenerates it every run. Check that manifest and the listing before deleting
+> anything here.
+
+## Companion art is synced, not curated
+Every companion image on this site comes from the app, via
+`art-pipeline/anchor-brand/sync_site_art.py`. Run it after ANY change to the
+app's companion art, and gate deploys on `python3 sync_site_art.py --check`.
+The site carries no companion file that a page does not render — the wordmark
+and the five unused `-steady.png` sprites were removed for exactly that reason.
+The wordmark master still lives in `Anchor-Brand/quietoak-wordmark.png`
+(regenerable via `compose_quietoak_wordmark.py`) if nav/footer ever needs it.
