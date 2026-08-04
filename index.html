@@ -202,7 +202,11 @@
     @media (max-width: 860px) { .continuity-art { max-width: 240px; margin-top: 24px; } }
     .hero-image { position: relative; }
     .hero-image img {
-      width: 100%; max-width: 460px; display: block; margin: 0 auto; object-fit: contain;
+      /* height:auto is load-bearing: the tag carries width/height attributes
+         (for aspect-ratio/CLS), and with only the width overridden in CSS the
+         height="761" attribute kept applying — a 327x761 letterbox on phones,
+         with the painting floating between two empty bands. */
+      width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto;
     }
     .hero-image::after {
       content: ''; position: absolute; inset: -30px;
