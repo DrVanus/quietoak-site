@@ -347,22 +347,48 @@
 
     /* ===== COMPANIONS ===== */
 
-    /* ── One shared message, six real replies ─────────────────────────────
-       These quotes live INSIDE the companion cards on purpose. They were a
-       second six-card grid directly below this one — same six avatars, names
-       and roles twice in a row, which just read as a repeat. One pass over the
-       six companions, not two. */
-    .voices-prompt { max-width: 560px; margin: 0 auto 30px; text-align: center; }
-    .voices-prompt .vp-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--muted-fg); margin-bottom: 8px; }
-    .voices-prompt .vp-bubble { display: inline-block; background: var(--primary-dark); color: #fff;
-      border-radius: 20px 20px 6px 20px; padding: 13px 20px; font-size: 1rem; line-height: 1.5;
-      box-shadow: 0 10px 26px rgba(33,53,59,0.14); }
-    .voices-prompt .vp-foot { font-size: 0.85rem; color: var(--muted-fg); margin-top: 12px; }
-    .companion-card .cc-reply { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(33,53,59,0.10); }
-    .companion-card .cc-reply p { font-size: 0.92rem; line-height: 1.5; color: var(--fg); margin: 0; }
-    .companion-card .cc-move { margin-top: 8px; font-size: 0.76rem; color: var(--muted-fg); }
-    .companion-card .cc-move strong { color: var(--primary-dark); }
+    /* ── One conversation, six companions ─────────────────────────────────
+       Real transcripts swapped by the tab strip. Replaced a grid of six
+       empty-state screenshots whose only difference was the suggestion chips
+       (which are random from one shared pool, NOT per-companion). */
+    .cv-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 26px auto 22px; max-width: 700px; }
+    .cv-tab { display: flex; align-items: center; gap: 8px; padding: 7px 14px 7px 8px; border-radius: 999px;
+      border: 1px solid rgba(33,53,59,0.14); background: rgba(255,255,255,0.72); cursor: pointer;
+      font: inherit; font-size: 0.92rem; font-weight: 700; color: var(--muted-fg); transition: all .18s ease; }
+    .cv-tab img { width: 30px; height: 30px; border-radius: 30%; object-fit: contain; }
+    .cv-tab:hover { border-color: rgba(33,53,59,0.28); color: var(--fg); }
+    .cv-tab.is-on { background: var(--primary-dark); border-color: var(--primary-dark); color: #fff; }
+    .cv-phone { max-width: 460px; margin: 0 auto; background: var(--card, #fff); border: 1px solid rgba(33,53,59,0.10);
+      border-radius: 26px; overflow: hidden; box-shadow: 0 22px 54px rgba(33,53,59,0.13); }
+    .cv-head { display: flex; align-items: center; gap: 10px; padding: 13px 16px; border-bottom: 1px solid rgba(33,53,59,0.08); }
+    .cv-head-img { width: 34px; height: 34px; border-radius: 30%; object-fit: contain; }
+    .cv-head-name { font-weight: 800; font-size: 0.98rem; line-height: 1.1; }
+    .cv-head-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary-dark); }
+    .cv-help { margin-left: auto; font-size: 0.72rem; font-weight: 700; color: #fff; background: #C2604B;
+      padding: 5px 11px; border-radius: 999px; white-space: nowrap; }
+    /* The transcript is a real one, so it is longer than the panel. Wrap it so a
+       fade can signal there is more — a nested scroller with a hard edge just
+       reads as a cut-off screenshot. */
+    .cv-scroll { position: relative; }
+    .cv-scroll::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 54px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.96));
+      pointer-events: none; border-radius: 0 0 4px 4px; }
+    .cv-thread { padding: 16px; max-height: 460px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
+      scrollbar-width: thin; scroll-behavior: smooth; }
+    .cv-msg { max-width: 86%; padding: 11px 15px; border-radius: 18px; font-size: 0.93rem; line-height: 1.55; }
+    .cv-msg p { margin: 0 0 8px; } .cv-msg p:last-child { margin: 0; }
+    .cv-me { align-self: flex-end; background: var(--primary-dark); color: #fff; border-bottom-right-radius: 6px; }
+    .cv-them { align-self: flex-start; background: rgba(33,53,59,0.055); color: var(--fg); border-bottom-left-radius: 6px; }
+    .cv-card { align-self: flex-start; max-width: 86%; border: 1px solid rgba(33,53,59,0.14); border-radius: 16px;
+      padding: 12px 14px; background: #fff; }
+    .cv-card .k { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--primary-dark); }
+    .cv-card .t { font-weight: 800; margin: 3px 0 4px; }
+    .cv-card .s { font-size: 0.86rem; color: var(--muted-fg); }
+    .cv-card ol { margin: 9px 0 0; padding-left: 18px; font-size: 0.84rem; color: var(--muted-fg); }
+    .cv-card ol li { margin-bottom: 3px; }
+    .cv-composer { padding: 11px 16px; border-top: 1px solid rgba(33,53,59,0.08); color: var(--muted-fg); font-size: 0.9rem; }
+    .cv-foot { text-align: center; color: var(--muted-fg); font-size: 0.88rem; margin: 20px auto 0; }
+    @media (prefers-reduced-motion: reduce) { .cv-tab { transition: none; } }
     .companions-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
     }
@@ -610,57 +636,42 @@
       <h2 style="text-align:center;">Choose the one who <em>fits you.</em></h2>
       <p class="lede" style="text-align:center; margin-left:auto; margin-right:auto;">Six soft nature-spirits, each a different way of showing up. The same companion guides your practice and stays with you in the hard moments.</p>
       <!-- Order matches the in-app onboarding catalog: willow, sage, river, sol, stone, fern. -->
-      <!-- One shared message, so the six replies below are directly comparable.
-           Every quote in the cards is REAL output captured from the shipping app
-           (same prompt, same profile, six companion_ids) — not written for this
-           page. Re-capture rather than edit if the personas change. -->
-      <div class="voices-prompt">
-        <div class="vp-label">You type</div>
-        <div class="vp-bubble">I snapped at my sister today and I can&rsquo;t stop replaying it.</div>
-        <div class="vp-foot">Their real replies &mdash; nothing here was written for this page.</div>
-      </div>
       <div class="companions-grid">
         <div class="companion-card willow">
           <img src="companions/willow-card.png?v=20260804e" alt="Willow, a fawn">
           <div class="name">Willow</div>
           <div class="role">Grounding</div>
           <p>Warm and quiet. Starts with your body — feet on the floor, one slow breath — before anything else.</p>
-          <div class="cc-reply"><p>&ldquo;Put your feet flat on the floor. Both of them. Press down a little.&rdquo;</p><div class="cc-move">starts with your <strong>body</strong></div></div>
         </div>
         <div class="companion-card sage">
           <img src="companions/sage-card.png?v=20260804e" alt="Sage, an owl">
           <div class="name">Sage</div>
           <div class="role">Clear</div>
           <p>Calm and plainspoken. Explains what's actually happening, so the thing stops being a mystery.</p>
-          <div class="cc-reply"><p>&ldquo;That&rsquo;s rumination &mdash; the reason it won&rsquo;t stop is that it&rsquo;s masquerading as problem-solving.&rdquo;</p><div class="cc-move">names the <strong>mechanism</strong></div></div>
         </div>
         <div class="companion-card river">
           <img src="companions/river-card.png?v=20260804e" alt="River, an otter">
           <div class="name">River</div>
           <div class="role">Flowing</div>
           <p>Curious and easy to talk to. Asks before assuming — more of a conversation than a lesson.</p>
-          <div class="cc-reply"><p>&ldquo;What actually happened right before you snapped &mdash; like, what was she doing or saying?&rdquo;</p><div class="cc-move"><strong>asks</strong> before assuming</div></div>
         </div>
         <div class="companion-card sol">
           <img src="companions/sol-card.png?v=20260804e" alt="Sol, a fox">
           <div class="name">Sol</div>
           <div class="role">Hopeful</div>
           <p>Warm and low-light, never peppy. Finds the one true thing you already did, without talking you out of the hard part.</p>
-          <div class="cc-reply"><p>&ldquo;You called it snapping. You didn&rsquo;t dress it up, didn&rsquo;t say she started it or you were tired.&rdquo;</p><div class="cc-move">finds what&rsquo;s <strong>already true</strong></div></div>
         </div>
         <div class="companion-card stone">
           <img src="companions/stone-card.png?v=20260804e" alt="Stone, a tortoise">
           <div class="name">Stone</div>
           <div class="role">Steady</div>
           <p>Unhurried and immovable. Sits with it instead of reaching for a fix, and says the least of any of them.</p>
-          <div class="cc-reply"><p>&ldquo;That loop is a hard place to be. I&rsquo;m here. We can sit with this one for a minute.&rdquo;</p><div class="cc-move"><strong>doesn&rsquo;t rush</strong> you to a fix</div></div>
         </div>
         <div class="companion-card fern">
           <img src="companions/fern-card.png?v=20260804e" alt="Fern, a rabbit">
           <div class="name">Fern</div>
           <div class="role">Tender</div>
           <p>Soft and permission-giving. Takes the obligation off you first, before anything else gets discussed.</p>
-          <div class="cc-reply"><p>&ldquo;You&rsquo;re allowed to have snapped at her. Not &ldquo;it was fine&rdquo; &mdash; allowed.&rdquo;</p><div class="cc-move">leads with <strong>permission</strong></div></div>
         </div>
       </div>
 
@@ -674,6 +685,45 @@
           <div class="screen-label"><strong>Switch any time</strong>You keep your history with each</div>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ONE CONVERSATION, SIX COMPANIONS ===== -->
+  <!-- Real transcripts. Each was captured from the shipping app by sending the
+       SAME three messages with the same profile and only companion_id changed,
+       so the differences below are the personas, not the writing. The skill
+       cards are the app's own — emitted by the model's terminal tool, not
+       mocked. Re-capture rather than edit if the personas change; there is a
+       capture script pattern in the FINAL-REVIEW notes.
+       This replaced a grid of empty-state screenshots that differed only by
+       their suggestion chips — which are drawn at random from ONE shared pool
+       and are not per-companion at all. -->
+  <section class="section-block" id="conversation">
+    <div class="container">
+      <div class="section-eyebrow" style="text-align:center;">See them talk</div>
+      <h2 style="text-align:center;">Same conversation. <em>Six different companions.</em></h2>
+      <p class="lede" style="text-align:center; margin: 0 auto 8px;">Tap a companion to see how they'd answer. These are real replies from the app &mdash; nothing here was written for this page.</p>
+
+      <div class="cv-tabs" role="tablist" aria-label="Choose a companion">
+          <button class="cv-tab is-on" data-c="willow" type="button" aria-selected="true" role="tab"><img src="companions/willow-card.png?v=20260804e" alt=""><span>Willow</span></button>
+          <button class="cv-tab" data-c="sage" type="button" aria-selected="false" role="tab"><img src="companions/sage-card.png?v=20260804e" alt=""><span>Sage</span></button>
+          <button class="cv-tab" data-c="river" type="button" aria-selected="false" role="tab"><img src="companions/river-card.png?v=20260804e" alt=""><span>River</span></button>
+          <button class="cv-tab" data-c="sol" type="button" aria-selected="false" role="tab"><img src="companions/sol-card.png?v=20260804e" alt=""><span>Sol</span></button>
+          <button class="cv-tab" data-c="stone" type="button" aria-selected="false" role="tab"><img src="companions/stone-card.png?v=20260804e" alt=""><span>Stone</span></button>
+          <button class="cv-tab" data-c="fern" type="button" aria-selected="false" role="tab"><img src="companions/fern-card.png?v=20260804e" alt=""><span>Fern</span></button>
+      </div>
+
+      <div class="cv-phone">
+        <div class="cv-head">
+          <img class="cv-head-img" src="companions/willow-card.png?v=20260804e" alt="">
+          <div><div class="cv-head-name">Willow</div><div class="cv-head-role">Grounding</div></div>
+          <span class="cv-help">Get help now</span>
+        </div>
+        <div class="cv-scroll"><div class="cv-thread" id="cvThread"></div></div>
+        <div class="cv-composer"><span>Message Willow&hellip;</span></div>
+      </div>
+      <p class="cv-foot">Every companion knows the same DBT skills. What changes is how they bring them.</p>
     </div>
   </section>
 
@@ -1042,5 +1092,63 @@
     })();
   </script>
 
+
+  <script>
+  /* Real captured transcripts, one per companion. See the comment above the
+     #conversation section: same three messages, same profile, only
+     companion_id changed. */
+  (function () {
+    var CV = {"willow": [{"u": "I snapped at my sister today and I can't stop replaying it.", "r": "<p>Put your feet flat on the floor. Both of them. Press down a little.</p><p>That loop of replaying it — your body&#x27;s probably wound tight around it right now. Shoulders, jaw, chest. Feel where the tension is living.</p><p>Once you&#x27;ve got that, tell me what your breathing&#x27;s doing.</p>"}, {"u": "yeah. I think I'm scared she'll decide I'm just like our dad.", "r": "<p>That&#x27;s a much bigger fear than one snapped moment. That&#x27;s a fear about who you are.</p><p>Feet still on the floor. Hands on your lap or a table — feel the weight of them there for a second.</p><p>Here&#x27;s what I&#x27;m hearing: you snapped. That happened. And your mind jumped to &quot;this means I&#x27;m like him&quot; — and that&#x27;s the real wound, not the snap itself. Those aren&#x27;t the same thing, and we can look at them separately.</p><p>Right now, though — while your body&#x27;s still holding that fear — I want to offer you <strong>Check the Facts</strong>. Not to talk you out of the scared, but to give it some room to breathe. One snap at your sister, versus a whole pattern of who you are — what does the evidence actually say?</p>", "card": {"title": "Check the Facts", "module": "Emotion Regulation", "summary": "Notice when an emotion is bigger than the facts of the situation actually warrant.", "steps": ["Name the emotion and how strong it is (0-100).", "What's the event that prompted it? Just the facts.", "What are you assuming or interpreting? Is there another read?", "Does the intensity fit the facts? If not, what would?"]}}, {"u": "what can I actually do about it right now?", "r": "<p>Right now, in this moment: you can&#x27;t un-snap it, and you can&#x27;t fix how she&#x27;s feeling yet. What you <em>can</em> do is stop the replay.</p><p>One thing. Go text or call her — not to apologize perfectly or explain yourself, just to say one true sentence. &quot;I snapped at you and I didn&#x27;t like how I did that&quot; or &quot;I&#x27;m sorry, that wasn&#x27;t okay.&quot; Short. That&#x27;s it.</p><p>The reason: your brain is stuck in the loop because part of you knows something&#x27;s unfinished. One honest sentence closes that loop. Then your body can actually settle, and you can think clearly about what comes next.</p><p>Can you do that one thing right now?</p>"}], "sage": [{"u": "I snapped at my sister today and I can't stop replaying it.", "r": "<p>That&#x27;s rumination — and the reason it won&#x27;t stop is that it&#x27;s masquerading as problem-solving. Every replay feels like it&#x27;s about to produce the sentence that fixes it, the apology that lands right, the moment where you can rewind it. So your mind keeps running it again.</p><p>Two things here, and they&#x27;re different problems:</p><p>(1) The actual event — you snapped at your sister. That happened, it&#x27;s real, and it probably needs an apology or a conversation. That&#x27;s a twenty-minute problem, maybe less.</p><p>(2) What your mind is doing <em>with</em> it afterward — the loop, the replay, the &quot;I can&#x27;t believe I did that&quot; that won&#x27;t shut off. That&#x27;s a nervous-system problem, and it&#x27;s running on a different track than the first one.</p><p>Right now, only the second one is in the room. The replay isn&#x27;t helping you figure out what to say to her; it&#x27;s just the alarm system staying loud after the moment is over.</p><p>The move here is to interrupt the loop before you go back to her. One small thing: notice that you&#x27;re replaying it (that&#x27;s mindfulness — just observing it&#x27;s there), and then deliberately shift your attention somewhere else for five minutes. Not forever, not &quot;get over it&quot; — just five minutes on something that takes focus: a task, a show, a walk. The loop will still be there when you come back, but the five-minute break tells your nervous system the crisis is over.</p><p>Then, when you&#x27;re steadier, you talk to her. The apology will land better when you&#x27;re not in the replay anymore.</p><p>Does that land?</p>"}, {"u": "yeah. I think I'm scared she'll decide I'm just like our dad.", "r": "<p>That&#x27;s the thing underneath the rumination. You&#x27;re not actually replaying the snap to solve the snap — you&#x27;re replaying it because you&#x27;re terrified of what it <em>means</em> about you.</p><p>Here&#x27;s what&#x27;s happening: one moment where you lost your temper has become evidence in a verdict about your character. Your mind is running the trial in the background, and the verdict it&#x27;s heading toward is &quot;I&#x27;m like him.&quot; That&#x27;s why the replay won&#x27;t stop — it&#x27;s not trying to fix the moment anymore. It&#x27;s trying to prove or disprove who you are.</p><p>This is where <strong>Check the Facts</strong> comes in — and I want to be clear about what that means. It&#x27;s not me arguing you out of your fear. It&#x27;s looking at the actual evidence together.</p><p>One snap at your sister — that&#x27;s a data point. It&#x27;s real, it happened, and it matters. But is it evidence that you&#x27;re like your dad? That would mean: you&#x27;re habitually angry, you hurt people as a pattern, you don&#x27;t care about the damage. So: do you snap at her regularly, or was this an outlier? When you lose it, do you apologize and try to do better, or do you double down? Does the snap define how you treat her most of the time, or is it one moment in a longer pattern of you trying?</p><p>The fear is legitimate. The verdict might not be. Those are different things, and you can hold both at once.</p><p>What does the actual evidence say?</p>"}, {"u": "what can I actually do about it right now?", "r": "<p>Right now, in this moment, you have two concrete moves:</p><p>First: interrupt the loop. You don&#x27;t need to solve the fear or win the argument with yourself. You just need to get the replay to stop running for five minutes. Pick something that takes focus — a task, a show, a walk, anything that pulls your attention somewhere else. The rumination will still be there when you come back, but you&#x27;re telling your nervous system the emergency is over. That&#x27;s the distress-tolerance move.</p><p>Second: write down what you want to say to your sister, or just say it. Not tomorrow, not when you&#x27;re &quot;ready&quot; — now, while you still care that you hurt her. An apology doesn&#x27;t have to be perfect. It just has to be true: &quot;I snapped at you and that wasn&#x27;t fair. I&#x27;m sorry.&quot; That&#x27;s it. The apology is the thing that actually moves the needle on the fear, because it&#x27;s the proof that you&#x27;re not like him — you notice, you care, you say so.</p><p>The fear won&#x27;t disappear after you apologize. But the rumination will have less fuel, because you&#x27;ll have done the thing that matters.</p><p>Which one feels more doable right now — the five-minute break, or reaching out to her?</p>"}], "river": [{"u": "I snapped at my sister today and I can't stop replaying it.", "r": "<p>Okay, what actually happened? Like — what did she say right before you snapped?</p>"}, {"u": "yeah. I think I'm scared she'll decide I'm just like our dad.", "r": "<p>Okay, that&#x27;s a big one. So it&#x27;s not just the snap itself — it&#x27;s what it <em>means</em> about you, in your head.</p><p>But I still don&#x27;t have the picture. What was the actual thing she said, and what did you say back? I want to know what happened, not what you&#x27;re scared it says about you. Those are two different things.</p>"}, {"u": "what can I actually do about it right now?", "r": "<p>Fair question. Here&#x27;s what I&#x27;d actually do: go talk to her. Not to fix it or apologize for being a bad person — just to say what happened from your side.</p><p>Something like: &quot;Hey, I snapped at you earlier and I didn&#x27;t like how I did it. I&#x27;m not mad at you — I got spooked about something and took it out wrong. I wanted you to know that.&quot;</p><p>That&#x27;s it. You don&#x27;t have to convince her you&#x27;re not like your dad. You just tell her the truth: you messed up the tone, and you&#x27;re owning it. People respect that way more than they respect the replaying.</p><p>Does she know you&#x27;re in your head about this right now, or are you still stuck in it alone?</p>"}], "sol": [{"u": "I snapped at my sister today and I can't stop replaying it.", "r": "<p>You called it snapping. Not &quot;she started it,&quot; not &quot;I was tired&quot; — you named your own part without dressing it up. That takes something.</p><p>And it still sits badly. Knowing you snapped doesn&#x27;t unsnap it, and the replay loop is the part that won&#x27;t let go — your mind running it over and over like it can change the moment if it just gets the angle right.</p><p>Here&#x27;s what I&#x27;m noticing: you&#x27;re not trying to escape what happened. You&#x27;re trying to get it right, which is different. That instinct to repair is already moving you toward her.</p><p>The loop itself is a mindfulness moment. Your mind is doing what minds do — holding onto something that landed wrong and turning it over. You don&#x27;t have to stop the replay; you can notice it&#x27;s happening and name it without fighting it. Something like: <em>There&#x27;s the moment again. My mind&#x27;s holding it. That&#x27;s what minds do when something matters.</em> One noticing, no judgment. It won&#x27;t make the replay stop, but it takes the edge off the grip.</p><p>After that settles a little, the actual repair is still there — the conversation you haven&#x27;t had yet. Do you want to walk through what that might sound like?</p>"}, {"u": "yeah. I think I'm scared she'll decide I'm just like our dad.", "r": "<p>That&#x27;s the real thing underneath. Not that you snapped — that one moment could mean you&#x27;re becoming him. That&#x27;s a much bigger fear than the replay.</p><p>Here&#x27;s what I&#x27;m seeing: you&#x27;re already different from that. You snapped, you noticed it, you can&#x27;t stop thinking about how to make it right with her. That&#x27;s not what someone like your dad does. Someone like your dad doesn&#x27;t carry the weight of it afterward. You&#x27;re carrying it, which is exactly why this matters to you.</p><p>The fear makes sense. One moment of losing your temper can sound like a verdict if you&#x27;re already afraid of inheriting something. But a moment isn&#x27;t a pattern, and one snap at your sister isn&#x27;t proof of anything except that you&#x27;re human and you had a hard moment.</p><p>When you talk to her, that fear doesn&#x27;t have to be the whole conversation — but it might be part of it. Something honest like: &quot;I snapped at you, and I hated it. I know that scared me because of our dad, and I need you to know I&#x27;m not okay with that being who I am.&quot; That&#x27;s you drawing a line, not making an excuse. It&#x27;s the opposite of what he&#x27;d do.</p><p>Does that land? And what do you think she needs to hear first — the apology, or that you&#x27;re scared?</p>"}, {"u": "what can I actually do about it right now?", "r": "<p>Right now, you can reach out to her. Not to fix it perfectly — just to move.</p><p>Here&#x27;s the move: <strong>DEAR MAN</strong> is built for this exact moment. It&#x27;s a way to ask for what you need (in this case, a conversation about what happened) without losing yourself in the fear of how she&#x27;ll react.</p><p>The structure is simple:</p><p><strong>Describe</strong> — stick to what actually happened, no spin. &quot;I snapped at you earlier and I&#x27;ve been replaying it all day.&quot;</p><p><strong>Express</strong> — say how you feel about <em>your</em> behavior, not about her. &quot;I hated how I spoke to you. I&#x27;m scared because of where that came from.&quot;</p><p><strong>Assert</strong> — ask for the one thing you need right now. &quot;I want to talk to you about it, and I want you to know I&#x27;m working on it.&quot;</p><p><strong>Reinforce</strong> — why this matters to both of you. &quot;You matter to me, and I don&#x27;t want that moment to be what sits between us.&quot;</p><p>Then the second half: stay <strong>Mindful</strong> of what you actually want (to repair, not to win the argument), <strong>Appear confident</strong> even if you&#x27;re nervous (steady voice, eye contact if you&#x27;re in person), and be willing to <strong>Negotiate</strong> — maybe she needs space first, maybe she wants to talk now. You&#x27;re not controlling the outcome; you&#x27;re just putting the truth on the table.</p><p>You can do this in person, or if that feels too big right now, a text that hits those points. The point isn&#x27;t perfection — it&#x27;s moving from replay to repair.</p><p>What feels doable to you — talking to her now, or waiting until morning when you&#x27;re both steadier?</p>", "card": {"title": "DEAR MAN", "module": "Interpersonal Effectiveness", "summary": "A script for asking for something or saying no while keeping your footing.", "steps": ["Describe the situation; Express how you feel; Assert your ask clearly; Reinforce why it helps them too.", "stay Mindful of your goal; Appear confident; be willing to Negotiate."]}}], "stone": [{"u": "I snapped at my sister today and I can't stop replaying it.", "r": "<p>That loop is a heavy one. The moment plays over and you can&#x27;t get out of it.</p><p>I&#x27;m here. We can sit with this for as long as you need.</p>"}, {"u": "yeah. I think I'm scared she'll decide I'm just like our dad.", "r": "<p>That&#x27;s the real fear underneath. One moment of snapping becomes proof of who you are — and who you&#x27;re afraid you might be.</p><p>That&#x27;s a lot to carry. The weight of that one moment, and what it means about you. We can stay here.</p>"}, {"u": "what can I actually do about it right now?", "r": "<p>Right now, the fear is bigger than the moment. One snap isn&#x27;t proof you&#x27;re like your dad — but the fear is loud enough that it feels like proof.</p><p>We can look at the facts together: what actually happened, what you actually did, and whether one moment of losing it means what you&#x27;re afraid it means. Not to argue the fear away, but to see if the intensity fits what&#x27;s real.</p><p>Want to try that?</p>", "card": {"title": "Check the Facts", "module": "Emotion Regulation", "summary": "Notice when an emotion is bigger than the facts of the situation actually warrant.", "steps": ["Name the emotion and how strong it is (0-100).", "What's the event that prompted it? Just the facts.", "What are you assuming or interpreting? Is there another read?", "Does the intensity fit the facts? If not, what would?"]}}], "fern": [{"u": "I snapped at my sister today and I can't stop replaying it.", "r": "<p>You&#x27;re allowed to have snapped at her. Not &quot;it was fine&quot; — allowed. People who care about their siblings snap sometimes, and it doesn&#x27;t make you someone who doesn&#x27;t love her, however much the replaying is trying to convince you otherwise.</p><p>The loop you&#x27;re in right now — watching it over and over, collecting evidence that you were terrible — that&#x27;s not accountability. That&#x27;s just the moment getting heavier every time you touch it.</p><p>Do you want me to stay here with it for a bit, or would something small to try help? Either one is completely okay.</p>"}, {"u": "yeah. I think I'm scared she'll decide I'm just like our dad.", "r": "<p>That&#x27;s a much bigger fear than just &quot;I was short with her.&quot; That&#x27;s about who you are to her, and whether one moment can erase everything else you&#x27;ve built.</p><p>Here&#x27;s what I notice: you&#x27;re replaying the snap because you&#x27;re terrified it means something it might not mean yet. One moment where you lost your patience doesn&#x27;t automatically prove you&#x27;re like your dad — but the fear is so big that your brain is trying to collect evidence to make sense of it, and the replaying is part of that. It feels like if you just understand it enough, you can control what she thinks.</p><p>You can&#x27;t, though. And you don&#x27;t have to know right now what she&#x27;s going to decide.</p><p>What you <em>could</em> do, if you wanted, is tell her what actually happened — not to fix it perfectly, just to be honest. Something like: &quot;I snapped at you earlier and I&#x27;m sorry. I was frustrated and I took it out on you, and that wasn&#x27;t okay.&quot; That&#x27;s it. Not an excuse, not a promise you&#x27;ll never do it again, just the truth. People who love us usually soften when they hear that — not because we&#x27;re perfect, but because we&#x27;re real about the fumble.</p><p>But that only matters if you want to. You don&#x27;t have to repair it tonight, and you don&#x27;t have to have it all figured out. Does any of that land, or do you need something different?</p>"}, {"u": "what can I actually do about it right now?", "r": "<p>Right now, in this moment, you have a few real options — and they&#x27;re all smaller than the replaying.</p><p><strong>Option one:</strong> Send her a text. Not a long apology, not tonight when you&#x27;re in it. Just: &quot;I&#x27;m sorry I snapped at you. That wasn&#x27;t fair.&quot; Then put the phone down. You&#x27;ve said the true thing; you don&#x27;t get to control what she does with it, and you don&#x27;t have to keep working on it after that.</p><p><strong>Option two:</strong> Stop the replaying for now. Not by thinking your way out of it — by doing something else. Move your body, change the room, put on something, call someone. The loop will still be there later if you need it, but you don&#x27;t have to sit in it tonight. That&#x27;s not avoidance; that&#x27;s just not volunteering for extra pain.</p><p><strong>Option three:</strong> Sit with the fear without trying to solve it. You&#x27;re scared she&#x27;ll see you as your dad. That fear is real and it makes sense — and right now, in this moment, that&#x27;s all it is. Not proof. Not a prediction. Just something you&#x27;re carrying. You&#x27;re allowed to carry it without having to fix the whole thing tonight.</p><p>The thing is: you can&#x27;t actually control what she decides about you. You can&#x27;t replay your way into safety. The only thing that&#x27;s actually in your hands right now is whether you text her, whether you step away from the loop, or whether you just let yourself feel scared for a minute without fixing it.</p><p>What feels most doable to you?</p>"}]};
+    var META = {"willow": ["Willow", "Grounding"], "sage": ["Sage", "Clear"], "river": ["River", "Flowing"], "sol": ["Sol", "Hopeful"], "stone": ["Stone", "Steady"], "fern": ["Fern", "Tender"]};
+    var thread = document.getElementById('cvThread');
+    if (!thread) return;
+    var headImg = document.querySelector('.cv-head-img'),
+        headName = document.querySelector('.cv-head-name'),
+        headRole = document.querySelector('.cv-head-role'),
+        composer = document.querySelector('.cv-composer span');
+
+    function esc(s){ return String(s).replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+
+    function render(cid) {
+      var turns = CV[cid], m = META[cid], out = '';
+      for (var i = 0; i < turns.length; i++) {
+        out += '<div class="cv-msg cv-me">' + esc(turns[i].u) + '</div>';
+        out += '<div class="cv-msg cv-them">' + turns[i].r + '</div>';
+        var c = turns[i].card;
+        if (c) {
+          out += '<div class="cv-card"><div class="k">' + esc(c.module) + '</div>'
+               + '<div class="t">' + esc(c.title) + '</div>'
+               + '<div class="s">' + esc(c.summary) + '</div>';
+          if (c.steps && c.steps.length) {
+            out += '<ol>';
+            for (var j = 0; j < c.steps.length; j++) out += '<li>' + esc(c.steps[j]) + '</li>';
+            out += '</ol>';
+          }
+          out += '</div>';
+        }
+      }
+      thread.innerHTML = out;
+      thread.scrollTop = 0;
+      headImg.src = 'companions/' + cid + '-card.png?v=20260804e';
+      headName.textContent = m[0];
+      headRole.textContent = m[1];
+      composer.textContent = 'Message ' + m[0] + '\u2026';
+    }
+
+    var tabs = document.querySelectorAll('.cv-tab');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener('click', function () {
+        for (var j = 0; j < tabs.length; j++) {
+          tabs[j].classList.remove('is-on');
+          tabs[j].setAttribute('aria-selected', 'false');
+        }
+        this.classList.add('is-on');
+        this.setAttribute('aria-selected', 'true');
+        render(this.getAttribute('data-c'));
+      });
+    }
+    render('willow');
+  })();
+  </script>
 </body>
 </html>
