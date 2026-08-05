@@ -347,6 +347,12 @@
 
     /* ===== COMPANIONS ===== */
 
+    .pair-intro { max-width: 560px; margin: 52px auto 22px; text-align: center; }
+    .pair-intro h3 { font-size: 1.35rem; margin: 0 0 8px; }
+    .pair-intro p { color: var(--muted-fg); font-size: 0.98rem; line-height: 1.6; margin: 0; }
+    .pair-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; max-width: 620px; margin: 0 auto; align-items: start; }
+    @media (max-width: 520px) { .pair-grid { grid-template-columns: 1fr; gap: 30px; max-width: 320px; } }
+
     /* ── One conversation, six companions ─────────────────────────────────
        Real transcripts swapped by the tab strip. Replaced a grid of six
        empty-state screenshots whose only difference was the suggestion chips
@@ -675,14 +681,25 @@
         </div>
       </div>
 
-      <div class="screens-grid" style="max-width: 620px; margin-top: 42px;">
+      <!-- These two frames used to sit in the 3-column `.screens-grid` at
+           max-width 620px with no heading: two cards in a three-column track,
+           so they floated with an empty third column and a pair of thin
+           captions under a lot of white space. Given their own 2-up grid and an
+           introduction that says what you are looking at — the picker in
+           particular needed one, since "which companion do I choose?" is the
+           question this whole section exists to answer. -->
+      <div class="pair-intro">
+        <h3>Choosing one isn&rsquo;t a commitment</h3>
+        <p>Hear a sample of each before you decide, and switch whenever you like &mdash; every companion keeps its own history with you, so nothing is lost by trying another.</p>
+      </div>
+      <div class="pair-grid">
         <div class="screen-card">
-          <div class="screen-frame"><img src="screenshots/07-voice.jpg?v=20260804e" alt="Quietoak voice mode — talk with your companion hands-free" loading="lazy"></div>
-          <div class="screen-label"><strong>Any of them, out loud</strong>Hands-free voice mode</div>
+          <div class="screen-frame"><img src="screenshots/08-switcher.jpg?v=20260804e" alt="Quietoak's companion picker — six companions with a short description and a listen-to-a-sample button for each" loading="lazy"></div>
+          <div class="screen-label"><strong>Pick who fits today</strong>A sample of each voice, and a line on how they listen</div>
         </div>
         <div class="screen-card">
-          <div class="screen-frame"><img src="screenshots/08-switcher.jpg?v=20260804e" alt="Quietoak's companion switcher — change companion any time and keep your history" loading="lazy"></div>
-          <div class="screen-label"><strong>Switch any time</strong>You keep your history with each</div>
+          <div class="screen-frame"><img src="screenshots/07-voice.jpg?v=20260804e" alt="Quietoak voice mode — tap once and talk with your companion hands-free" loading="lazy"></div>
+          <div class="screen-label"><strong>Or just say it out loud</strong>Tap once and talk &mdash; any companion, hands-free</div>
         </div>
       </div>
     </div>
